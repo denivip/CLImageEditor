@@ -89,6 +89,7 @@
         CGFloat dy = ([UIDevice iosVersion]<7) ? 0 : MIN([UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width);
         
         UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, dy, self.view.width, 44)];
+        navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [navigationBar pushNavigationItem:navigationItem animated:NO];
         navigationBar.delegate = self;
         
@@ -179,6 +180,7 @@
 {
     [super viewDidLoad];
     
+    self.view.bounds = CGRectMake(0, 0, 320, 480);
     self.title = self.toolInfo.title;
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = self.theme.backgroundColor;
